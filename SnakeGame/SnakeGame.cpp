@@ -25,14 +25,13 @@ int map[mapSize];
 
 int headxpos;
 int headypos;
-int direction;  // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+int direction; 
 
 int food = 4;
 
-atomic<bool> running(true);  // Usamos atomic para la seguridad en hilos
-mutex mtx;  // Mutex para proteger acceso a datos compartidos entre hilos
+atomic<bool> running(true);  
+mutex mtx;  
 
-// Función principal
 int main()
 {
     run();
@@ -109,23 +108,19 @@ void move(int dx, int dy)
         }
         else {
             // Mueve la cabeza de la serpiente
-            headxpos = newx;
-            headypos = newy;
-            map[headxpos + headypos * mapWidth] = food + 1;  // Marca la cabeza en el mapa
-
+         
             // Mueve el cuerpo de la serpiente (cada parte del cuerpo debe moverse hacia donde estaba la anterior)
             for (int i = 0; i < mapSize; i++)
             {
 
                 if (map[i] > 0) map[i]++;  // Aumenta el valor de las partes del cuerpo de la serpiente
-                if (map[i] == food + 1)
-                {
-                    map[i] = 0;  // Establece la posición en "vacío"
-                    break;
-                }
 
             }
         }
+        headxpos = newx;
+        headypos = newy;
+        map[headxpos + headypos * mapWidth] = food + 1;  // Marca la cabeza en el mapa
+
 
         
     }
