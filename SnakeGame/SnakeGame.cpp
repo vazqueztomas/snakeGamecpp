@@ -18,7 +18,7 @@ void generateFood();
 
 char getValueMap(int value);
 
-const int mapWidth = 20;
+const int mapWidth = 30;
 const int mapHeight = 20;
 const int mapSize = mapWidth * mapHeight;
 int map[mapSize];
@@ -58,7 +58,7 @@ void run()
         printMap();  // Imprime el mapa actualizado
 
         // Ajusta la velocidad de la actualización del juego (más rápido)
-        this_thread::sleep_for(chrono::milliseconds(400));  // Espera 400 ms entre cada ciclo
+        this_thread::sleep_for(chrono::milliseconds(200));  // Espera 400 ms entre cada ciclo
     }
 
     cout << "\t\tGame Over!" << endl << "\t\tYour score is: " << food << endl;
