@@ -107,13 +107,11 @@ void move(int dx, int dy)
             generateFood();  // Genera nueva comida
         }
         else {
-            // Mueve la cabeza de la serpiente
          
-            // Mueve el cuerpo de la serpiente (cada parte del cuerpo debe moverse hacia donde estaba la anterior)
             for (int i = 0; i < mapSize; i++)
             {
 
-                if (map[i] > 0) map[i]++;  // Aumenta el valor de las partes del cuerpo de la serpiente
+                if (map[i] > 0) map[i]--;  // Aumenta el valor de las partes del cuerpo de la serpiente
 
             }
         }
